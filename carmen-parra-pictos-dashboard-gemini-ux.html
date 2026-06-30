@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Dashboard Carmen Parra Pictos</title>
+<style>
+:root{--bg:#f7f9ff;--panel:#fff;--text:#111827;--muted:#667085;--line:#dbe5ff;--blue:#1a73e8;--violet:#7c3aed;--cyan:#00acc1;--green:#34a853;--yellow:#fbbc04;--red:#ea4335;--shadow:0 20px 60px rgba(39,63,112,.16)}*{box-sizing:border-box}body{margin:0;font-family:Inter,Arial,sans-serif;color:var(--text);background:radial-gradient(circle at 10% 0%,#dbeafe,transparent 30%),radial-gradient(circle at 85% 5%,#ede9fe,transparent 32%),var(--bg)}.layout{display:grid;grid-template-columns:280px 1fr;min-height:100vh}aside{padding:24px;border-right:1px solid var(--line);background:rgba(255,255,255,.75);position:sticky;top:0;height:100vh}.logo{width:46px;height:46px;border-radius:17px;background:conic-gradient(from 135deg,var(--blue),var(--violet),var(--cyan),var(--green),var(--yellow),var(--red),var(--blue));box-shadow:var(--shadow);margin-bottom:14px}h1{font-size:20px;margin:0}.sub{color:var(--muted);font-size:13px;margin:6px 0 22px}nav a{display:block;text-decoration:none;color:var(--muted);font-weight:800;padding:12px 14px;margin:6px 0;border-radius:16px}nav a:hover{background:linear-gradient(90deg,rgba(26,115,232,.14),rgba(124,58,237,.12));color:var(--blue)}main{padding:28px}.hero,.card,.metric{background:rgba(255,255,255,.86);border:1px solid var(--line);border-radius:28px;box-shadow:var(--shadow)}.hero{padding:34px;margin-bottom:18px}.hero h2{font-size:clamp(34px,5vw,62px);line-height:.92;letter-spacing:-.065em;margin:0 0 14px}.grad{background:linear-gradient(90deg,var(--blue),var(--violet),var(--cyan));-webkit-background-clip:text;color:transparent}p{color:var(--muted);line-height:1.6}.chips{display:flex;gap:8px;flex-wrap:wrap}.chip,.pill{display:inline-block;border:1px solid var(--line);border-radius:999px;padding:8px 11px;font-size:12px;font-weight:850;background:rgba(255,255,255,.55)}.pill{background:rgba(26,115,232,.12);color:var(--blue)}.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:18px 0}.metric{padding:18px}.metric span{display:block;color:var(--muted);font-size:12px;text-transform:uppercase;font-weight:900}.metric b{font-size:34px;letter-spacing:-.04em}.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}.card{padding:22px}.bar{height:12px;background:#e9eefc;border-radius:999px;overflow:hidden;margin:8px 0 16px}.bar i{display:block;height:100%;background:linear-gradient(90deg,var(--blue),var(--violet),var(--cyan));border-radius:999px}.steps li{margin:10px 0;color:var(--muted)}table{width:100%;border-collapse:collapse;margin-top:12px;background:#fff;border-radius:18px;overflow:hidden}th,td{text-align:left;padding:12px;border-bottom:1px solid var(--line)}th{color:var(--muted);font-size:12px;text-transform:uppercase;background:#f2f6ff}@media(max-width:900px){.layout{grid-template-columns:1fr}aside{height:auto;position:relative;border-right:0;border-bottom:1px solid var(--line)}nav{display:flex;overflow:auto}.metrics,.grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="layout">
+<aside>
+<div class="logo"></div>
+<h1>Carmen Parra / Pictos</h1>
+<div class="sub">Dashboard UX con paleta Gemini Google</div>
+<nav><a href="#inicio">Inicio</a><a href="#conteo">Conteo</a><a href="#calidad">Calidad de datos</a><a href="#pictos">Flujo Pictos</a></nav>
+</aside>
+<main>
+<section id="inicio" class="hero">
+<h2>Inventario visual, limpio y <span class="grad">accionable</span></h2>
+<p>Versión GitHub Pages del dashboard de inventario Carmen Parra / Pictos. El diseño está pensado como una vista ejecutiva: primero estado general, después conteos, calidad de datos y flujo de recuperación.</p>
+<div class="chips"><span class="chip">UX responsive</span><span class="chip">Paleta Gemini</span><span class="chip">Inventario Pictos</span><span class="chip">GitHub Pages ready</span></div>
+</section>
+<section id="conteo" class="metrics">
+<div class="metric"><span>Registros</span><b>665</b></div>
+<div class="metric"><span>Completos</span><b>359</b></div>
+<div class="metric"><span>Incompletos</span><b>306</b></div>
+<div class="metric"><span>Sin año</span><b>219</b></div>
+</section>
+<section class="grid">
+<div class="card"><h3>Estado general</h3><p>El inventario proviene de un HTML exportado desde Pictos con columnas de referencia, artista, título, técnica, dimensiones y año.</p><div class="bar"><i style="width:54%"></i></div><span class="pill">54% de registros completos</span></div>
+<div class="card"><h3>Rango cronológico</h3><p>Los años válidos detectados cubren principalmente obra entre 1991 y 2017. La falta de año es el principal punto de limpieza.</p><div class="bar"><i style="width:67%"></i></div><span class="pill">1991–2017</span></div>
+</section>
+<section id="calidad" class="card" style="margin-top:16px"><h3>Calidad de datos</h3><table><tr><th>Campo</th><th>Faltantes</th><th>Prioridad</th></tr><tr><td>Título</td><td>118</td><td>Alta</td></tr><tr><td>Técnica</td><td>43</td><td>Media</td></tr><tr><td>Dimensiones</td><td>58</td><td>Media</td></tr><tr><td>Año</td><td>219</td><td>Alta</td></tr></table></section>
+<section id="pictos" class="card" style="margin-top:16px"><h3>Flujo de recuperación Pictos</h3><ol class="steps"><li>01_RESPALDO_ORIGINAL/Pictos3</li><li>02_COPIA_DE_TRABAJO/Pictos3_TRABAJO/A_COPIA_COMPLETA/Pictos3</li><li>02_COPIA_DE_TRABAJO/Pictos3_TRABAJO/B_ANALISIS/03_TABLAS_PRIORITARIAS</li><li>04_REPORTES_Y_FORMATOS</li><li>05_RECURSOS_VISUALES</li><li>06_EXPORTACIONES</li><li>07_DOCUMENTACION</li><li>03_ENTREGABLES_FINALES</li></ol></section>
+</main>
+</div>
+</body>
+</html>
