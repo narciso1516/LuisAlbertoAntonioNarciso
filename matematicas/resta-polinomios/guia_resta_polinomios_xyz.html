@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Guía de Resta de Polinomios con x, y, z</title>
+  <style>
+    *{box-sizing:border-box}body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#f3f6fb;color:#1f2933;line-height:1.65}header{background:linear-gradient(135deg,#173b63,#24689b);color:white;padding:38px 22px;text-align:center}header h1{margin:0 0 10px;font-size:34px}header p{margin:0;font-size:18px}main{max-width:1000px;margin:30px auto;padding:0 18px 48px}section{background:white;border-radius:16px;padding:24px;margin-bottom:26px;box-shadow:0 8px 22px rgba(23,59,99,.11)}h2{color:#173b63;margin-top:0}h3{color:#24689b;margin-bottom:8px}.intro{border-left:8px solid #24689b}.reglas{border-left:8px solid #f59e0b;background:#fffaf0}.ejercicio{border-top:8px solid #173b63}.nivel{display:inline-block;background:#173b63;color:white;padding:6px 14px;border-radius:999px;font-size:14px;margin-bottom:10px}.operacion{font-size:22px;font-weight:700;text-align:center;background:#eef5fb;border:1px solid #d7e6f3;padding:16px;border-radius:12px;overflow-x:auto}.paso{background:#f8fbff;border-left:5px solid #6fa8dc;padding:13px 16px;margin:13px 0;border-radius:8px}.resultado{background:#e9f7ef;border-left:7px solid #2e7d32;padding:15px;margin-top:16px;border-radius:10px;font-size:20px;font-weight:700}.alerta{background:#fff3cd;border-left:7px solid #f59e0b;padding:15px;border-radius:10px}.tabla{width:100%;border-collapse:collapse;margin:16px 0}.tabla th,.tabla td{border:1px solid #d7e6f3;padding:10px;text-align:left}.tabla th{background:#e8f1fa;color:#173b63}.code{font-family:Consolas,monospace;background:#f0f4f8;padding:2px 6px;border-radius:5px}.no{color:#b42318;font-weight:700}.si{color:#146c2e;font-weight:700}footer{text-align:center;color:#5f6b7a;padding:24px;font-size:14px}@media(max-width:700px){header h1{font-size:27px}.operacion{font-size:18px}section{padding:18px}}
+  </style>
+</head>
+<body>
+<header>
+  <h1>Guía de Resta de Polinomios</h1>
+  <p>Ejercicios con x, y, z explicados de nivel básico a intermedio</p>
+</header>
+<main>
+  <section class="intro">
+    <h2>1. ¿Qué es restar polinomios?</h2>
+    <p>Restar polinomios significa quitar un grupo de términos algebraicos. En matemáticas, cuando aparece un signo menos antes de un paréntesis, ese signo afecta a todos los términos que están dentro del paréntesis.</p>
+    <p class="operacion">A - (B) = A + (-B)</p>
+    <p>Es decir, el primer polinomio se queda igual y al segundo polinomio se le cambian todos los signos.</p>
+  </section>
+
+  <section class="reglas">
+    <h2>2. Reglas importantes</h2>
+    <h3>Regla 1: Cambiar signos al segundo polinomio</h3>
+    <p>Si tienes <span class="code">(5x + 3y) - (2x - 4y)</span>, el segundo paréntesis cambia así:</p>
+    <p class="operacion">2x - 4y &rarr; -2x + 4y</p>
+    <h3>Regla 2: Solo se suman o restan términos semejantes</h3>
+    <p>Los términos semejantes tienen exactamente la misma letra o letras con los mismos exponentes.</p>
+    <table class="tabla">
+      <tr><th>Comparación</th><th>¿Son semejantes?</th><th>Razón</th></tr>
+      <tr><td>3x y 7x</td><td class="si">Sí</td><td>Tienen la misma variable x.</td></tr>
+      <tr><td>4y y -2y</td><td class="si">Sí</td><td>Tienen la misma variable y.</td></tr>
+      <tr><td>5z y 9z</td><td class="si">Sí</td><td>Tienen la misma variable z.</td></tr>
+      <tr><td>6x y 6y</td><td class="no">No</td><td>Una tiene x y la otra tiene y.</td></tr>
+      <tr><td>3xy y 8xy</td><td class="si">Sí</td><td>Tienen las mismas variables: x e y.</td></tr>
+      <tr><td>4xz y 4zy</td><td class="no">No</td><td>No tienen exactamente las mismas variables.</td></tr>
+      <tr><td>2x² y 5x</td><td class="no">No</td><td>El exponente de x es diferente.</td></tr>
+    </table>
+    <h3>Regla 3: Se suman o restan solo los coeficientes</h3>
+    <p>El coeficiente es el número que acompaña a la letra. La parte literal no cambia.</p>
+    <p class="operacion">7x - 3x = 4x</p>
+    <p class="operacion">5y + 2y = 7y</p>
+    <p class="operacion">9z - 4z = 5z</p>
+    <div class="alerta"><strong>Error común:</strong> no se debe sumar <span class="code">3x + 2y</span> como <span class="code">5xy</span>. Como x y y son letras distintas, no son términos semejantes.</div>
+  </section>
+
+  <section class="ejercicio">
+    <span class="nivel">Ejercicio 1 - Nivel básico</span>
+    <h2>Resta con x y y</h2>
+    <p class="operacion">(5x + 3y) - (2x + y)</p>
+    <div class="paso"><strong>Paso 1:</strong> Dejamos igual el primer polinomio: <span class="code">5x + 3y</span>.</div>
+    <div class="paso"><strong>Paso 2:</strong> Cambiamos los signos del segundo polinomio: <span class="code">2x + y</span> se convierte en <span class="code">-2x - y</span>.</div>
+    <div class="paso"><strong>Paso 3:</strong> Escribimos todo sin paréntesis: <span class="code">5x + 3y - 2x - y</span>.</div>
+    <div class="paso"><strong>Paso 4:</strong> Agrupamos términos semejantes: <span class="code">5x - 2x</span> y <span class="code">3y - y</span>.</div>
+    <div class="paso"><strong>Paso 5:</strong> Resolvemos: <span class="code">5x - 2x = 3x</span> y <span class="code">3y - y = 2y</span>.</div>
+    <div class="resultado">Resultado: 3x + 2y</div>
+  </section>
+
+  <section class="ejercicio">
+    <span class="nivel">Ejercicio 2 - Nivel básico alto</span>
+    <h2>Resta con x, y, z y signos negativos</h2>
+    <p class="operacion">(7x - 4y + 6z) - (3x - 2y + z)</p>
+    <div class="paso"><strong>Paso 1:</strong> El segundo polinomio es <span class="code">3x - 2y + z</span>.</div>
+    <div class="paso"><strong>Paso 2:</strong> Cambiamos todos sus signos: <span class="code">3x</span> pasa a <span class="code">-3x</span>, <span class="code">-2y</span> pasa a <span class="code">+2y</span> y <span class="code">+z</span> pasa a <span class="code">-z</span>.</div>
+    <div class="paso"><strong>Paso 3:</strong> La operación queda: <span class="code">7x - 4y + 6z - 3x + 2y - z</span>.</div>
+    <div class="paso"><strong>Paso 4:</strong> Agrupamos: <span class="code">7x - 3x</span>, <span class="code">-4y + 2y</span>, <span class="code">6z - z</span>.</div>
+    <div class="paso"><strong>Paso 5:</strong> Resolvemos: <span class="code">4x</span>, <span class="code">-2y</span>, <span class="code">5z</span>.</div>
+    <div class="resultado">Resultado: 4x - 2y + 5z</div>
+  </section>
+
+  <section class="ejercicio">
+    <span class="nivel">Ejercicio 3 - Nivel medio básico</span>
+    <h2>Resta con términos que no se pueden juntar</h2>
+    <p class="operacion">(4x + 5y - 3z) - (2x + 7z - 6)</p>
+    <div class="paso"><strong>Paso 1:</strong> Cambiamos los signos del segundo polinomio: <span class="code">2x + 7z - 6</span> se convierte en <span class="code">-2x - 7z + 6</span>.</div>
+    <div class="paso"><strong>Paso 2:</strong> Quitamos paréntesis: <span class="code">4x + 5y - 3z - 2x - 7z + 6</span>.</div>
+    <div class="paso"><strong>Paso 3:</strong> Agrupamos semejantes: <span class="code">4x - 2x</span>, <span class="code">5y</span>, <span class="code">-3z - 7z</span>, <span class="code">+6</span>.</div>
+    <div class="paso"><strong>Paso 4:</strong> El término <span class="code">5y</span> no tiene otro término semejante, por eso se conserva igual.</div>
+    <div class="paso"><strong>Paso 5:</strong> Resolvemos: <span class="code">4x - 2x = 2x</span> y <span class="code">-3z - 7z = -10z</span>.</div>
+    <div class="resultado">Resultado: 2x + 5y - 10z + 6</div>
+  </section>
+
+  <section class="ejercicio">
+    <span class="nivel">Ejercicio 4 - Nivel intermedio</span>
+    <h2>Resta con términos cuadrados</h2>
+    <p class="operacion">(6x² + 3y² - 4z) - (2x² - 5y² + z)</p>
+    <div class="paso"><strong>Paso 1:</strong> El primer polinomio se queda igual: <span class="code">6x² + 3y² - 4z</span>.</div>
+    <div class="paso"><strong>Paso 2:</strong> Cambiamos signos al segundo: <span class="code">2x² - 5y² + z</span> se convierte en <span class="code">-2x² + 5y² - z</span>.</div>
+    <div class="paso"><strong>Paso 3:</strong> Escribimos: <span class="code">6x² + 3y² - 4z - 2x² + 5y² - z</span>.</div>
+    <div class="paso"><strong>Paso 4:</strong> Agrupamos términos semejantes: <span class="code">6x² - 2x²</span>, <span class="code">3y² + 5y²</span>, <span class="code">-4z - z</span>.</div>
+    <div class="paso"><strong>Paso 5:</strong> Resolvemos cada grupo: <span class="code">4x²</span>, <span class="code">8y²</span>, <span class="code">-5z</span>.</div>
+    <div class="resultado">Resultado: 4x² + 8y² - 5z</div>
+  </section>
+
+  <section class="ejercicio">
+    <span class="nivel">Ejercicio 5 - Nivel intermedio</span>
+    <h2>Resta con términos mixtos xy, xz, yz</h2>
+    <p class="operacion">(8xy - 4xz + 7yz - 6) - (3xy + 5xz - 2yz + 9)</p>
+    <div class="paso"><strong>Paso 1:</strong> Identificamos el segundo polinomio: <span class="code">3xy + 5xz - 2yz + 9</span>.</div>
+    <div class="paso"><strong>Paso 2:</strong> Cambiamos todos sus signos: <span class="code">-3xy - 5xz + 2yz - 9</span>.</div>
+    <div class="paso"><strong>Paso 3:</strong> Quitamos paréntesis: <span class="code">8xy - 4xz + 7yz - 6 - 3xy - 5xz + 2yz - 9</span>.</div>
+    <div class="paso"><strong>Paso 4:</strong> Agrupamos semejantes: <span class="code">8xy - 3xy</span>, <span class="code">-4xz - 5xz</span>, <span class="code">7yz + 2yz</span>, <span class="code">-6 - 9</span>.</div>
+    <div class="paso"><strong>Paso 5:</strong> Resolvemos: <span class="code">5xy</span>, <span class="code">-9xz</span>, <span class="code">9yz</span>, <span class="code">-15</span>.</div>
+    <div class="resultado">Resultado: 5xy - 9xz + 9yz - 15</div>
+  </section>
+
+  <section class="reglas">
+    <h2>3. Resumen final para estudiar</h2>
+    <ol>
+      <li>El primer polinomio se queda igual.</li>
+      <li>Al segundo polinomio se le cambian todos los signos.</li>
+      <li>Después se eliminan los paréntesis.</li>
+      <li>Se identifican términos semejantes: x con x, y con y, z con z, xy con xy, x² con x².</li>
+      <li>Solo se suman o restan los coeficientes.</li>
+      <li>Los términos que no tienen semejante se copian igual en el resultado.</li>
+    </ol>
+    <div class="alerta"><strong>Idea clave:</strong> en la resta de polinomios, el error más común es olvidar cambiar todos los signos del segundo paréntesis.</div>
+  </section>
+</main>
+<footer>Guía educativa de matemáticas · Resta de polinomios con x, y, z</footer>
+</body>
+</html>
