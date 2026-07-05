@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Examen Interactivo - Resta de Polinomios</title>
+<style>
+:root{--azul:#1a73e8;--verde:#34a853;--amarillo:#fbbc04;--rojo:#ea4335;--texto:#172033;--gris:#5f6b7a;--fondo:#f4f7fb;--linea:#d9e4f2}*{box-sizing:border-box}body{margin:0;font-family:Arial,Helvetica,sans-serif;background:linear-gradient(180deg,#eef5ff,#f8fbff);color:var(--texto);line-height:1.55}header{background:linear-gradient(135deg,#174ea6,#1a73e8);color:white;text-align:center;padding:34px 18px}header h1{margin:0 0 8px;font-size:32px}header p{margin:0;font-size:17px}main{max-width:930px;margin:28px auto;padding:0 16px 44px}.card{background:white;border-radius:18px;box-shadow:0 14px 35px rgba(23,32,51,.12);padding:24px;margin-bottom:18px}.meta{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:14px}.pill{border-radius:999px;padding:6px 12px;font-weight:bold;font-size:13px}.basico{background:#e8f0fe;color:#174ea6}.intermedio{background:#fff7df;color:#9a6700}.avanzado{background:#fce8e6;color:#b3261e}.pregunta{font-size:24px;font-weight:800;margin:12px 0 20px}.formula{background:#f6f9ff;border:1px solid var(--linea);border-radius:12px;padding:16px;text-align:center;font-size:22px;font-weight:bold;overflow-x:auto}.opciones{display:grid;grid-template-columns:1fr;gap:12px;margin-top:18px}.opcion{border:2px solid var(--linea);background:white;border-radius:14px;padding:14px 16px;text-align:left;font-size:18px;cursor:pointer;transition:.15s}.opcion:hover{border-color:var(--azul);background:#f7fbff}.opcion.correcta{border-color:var(--verde);background:#e6f4ea;color:#137333}.opcion.incorrecta{border-color:var(--rojo);background:#fce8e6;color:#b3261e}.opcion:disabled{cursor:not-allowed}.mensaje{margin-top:18px;padding:14px;border-radius:12px;font-weight:bold;display:none}.ok{display:block;background:#e6f4ea;color:#137333;border-left:6px solid var(--verde)}.bad{display:block;background:#fce8e6;color:#b3261e;border-left:6px solid var(--rojo)}.acciones{display:flex;gap:12px;justify-content:space-between;align-items:center;margin-top:20px;flex-wrap:wrap}.btn{border:none;border-radius:12px;padding:13px 18px;font-weight:bold;font-size:16px;cursor:pointer}.btn-primary{background:var(--azul);color:white}.btn-primary:disabled{background:#b8c7e6;cursor:not-allowed}.btn-secondary{background:#eef2f7;color:#263442}.progreso{font-weight:bold;color:var(--gris)}.barra{height:12px;background:#e5ecf6;border-radius:999px;overflow:hidden;margin:18px 0}.relleno{height:100%;width:0;background:linear-gradient(90deg,#1a73e8,#34a853);transition:.25s}.resumen{text-align:center}.resumen h2{font-size:30px;color:#174ea6}.oculto{display:none}.nota{background:#fff7df;border-left:6px solid var(--amarillo);border-radius:12px;padding:14px;margin-top:14px}footer{text-align:center;color:var(--gris);font-size:14px;padding:20px}@media(max-width:650px){header h1{font-size:25px}.pregunta{font-size:21px}.formula{font-size:19px}.card{padding:18px}}
+</style>
+</head>
+<body>
+<header>
+<h1>Examen Interactivo de Resta de Polinomios</h1>
+<p>15 preguntas: básico, intermedio y avanzado</p>
+</header>
+<main>
+<section class="card" id="inicio">
+<h2>Instrucciones</h2>
+<p>Lee cada operación y selecciona la respuesta correcta. El examen solo permite avanzar cuando la respuesta es correcta.</p>
+<div class="nota"><strong>Regla del examen:</strong> si seleccionas una respuesta incorrecta, la pregunta queda bloqueada y no se muestran nuevas oportunidades de selección.</div>
+<button class="btn btn-primary" onclick="iniciar()">Iniciar examen</button>
+</section>
+<section class="card oculto" id="examen">
+<div class="meta"><span class="pill" id="nivel"></span><span class="pill basico" id="contador"></span></div>
+<div class="barra"><div class="relleno" id="relleno"></div></div>
+<div class="progreso" id="progreso"></div>
+<div class="pregunta" id="titulo"></div>
+<div class="formula" id="formula"></div>
+<div class="opciones" id="opciones"></div>
+<div class="mensaje" id="mensaje"></div>
+<div class="acciones"><button class="btn btn-secondary" onclick="reiniciar()">Reiniciar</button><button class="btn btn-primary" id="siguiente" onclick="siguiente()" disabled>Siguiente</button></div>
+</section>
+<section class="card resumen oculto" id="final">
+<h2>Examen terminado</h2>
+<p id="resultadoFinal"></p>
+<button class="btn btn-primary" onclick="reiniciar()">Volver a empezar</button>
+</section>
+</main>
+<footer>Guía evaluativa de matemáticas · Resta de polinomios</footer>
+<script>
+const preguntas=[
+{nivel:'Básico',clase:'basico',t:'Pregunta 1',f:'(5x + 3) - (2x + 1)',ops:['3x + 2','7x + 4','3x + 4','5x + 2'],r:0},
+{nivel:'Básico',clase:'basico',t:'Pregunta 2',f:'(7x - 4) - (3x - 2)',ops:['4x - 2','10x - 6','4x - 6','10x + 2'],r:0},
+{nivel:'Básico',clase:'basico',t:'Pregunta 3',f:'(6y + 8) - (2y + 5)',ops:['4y + 3','8y + 13','4y + 13','8y + 3'],r:0},
+{nivel:'Básico',clase:'basico',t:'Pregunta 4',f:'(9z - 1) - (4z + 6)',ops:['5z - 7','13z + 5','5z + 5','13z - 7'],r:0},
+{nivel:'Básico',clase:'basico',t:'Pregunta 5',f:'(3x + 2y) - (x + y)',ops:['2x + y','4x + 3y','2x + 3y','3x + y'],r:0},
+{nivel:'Intermedio',clase:'intermedio',t:'Pregunta 6',f:'(8x - 5y + 2z) - (3x - 2y + z)',ops:['5x - 3y + z','11x - 7y + 3z','5x - 7y + z','5x + 3y + z'],r:0},
+{nivel:'Intermedio',clase:'intermedio',t:'Pregunta 7',f:'(4x² + 6x + 5) - (x² + 2x + 3)',ops:['3x² + 4x + 2','5x² + 8x + 8','3x² + 8x + 2','4x² + 4x + 2'],r:0},
+{nivel:'Intermedio',clase:'intermedio',t:'Pregunta 8',f:'(6x² + 9) - (2x² - 5x + 4)',ops:['4x² + 5x + 5','4x² - 5x + 5','8x² + 5x + 13','4x² + 5x + 13'],r:0},
+{nivel:'Intermedio',clase:'intermedio',t:'Pregunta 9',f:'(7x + 4y - 3z) - (2x - y + 5z)',ops:['5x + 5y - 8z','5x + 3y + 2z','9x + 5y - 8z','5x - 5y - 8z'],r:0},
+{nivel:'Intermedio',clase:'intermedio',t:'Pregunta 10',f:'(5xy + 3x - 2y) - (2xy - x + 4y)',ops:['3xy + 4x - 6y','7xy + 2x + 2y','3xy + 2x - 6y','3xy + 4x + 2y'],r:0},
+{nivel:'Avanzado',clase:'avanzado',t:'Pregunta 11',f:'(8x³ - 4x² + 7x - 6) - (3x³ + 5x² - 2x + 9)',ops:['5x³ - 9x² + 9x - 15','5x³ + x² + 5x + 3','11x³ + x² + 5x - 15','5x³ - 9x² + 5x + 3'],r:0},
+{nivel:'Avanzado',clase:'avanzado',t:'Pregunta 12',f:'(6x²y - 3xy + 4z) - (2x²y + 5xy - z)',ops:['4x²y - 8xy + 5z','8x²y + 2xy + 3z','4x²y + 2xy + 5z','4x²y - 8xy + 3z'],r:0},
+{nivel:'Avanzado',clase:'avanzado',t:'Pregunta 13',f:'(9a² - 4ab + 3b²) - (5a² + 2ab - 7b²)',ops:['4a² - 6ab + 10b²','14a² - 2ab - 4b²','4a² + 6ab + 10b²','4a² - 2ab - 4b²'],r:0},
+{nivel:'Avanzado',clase:'avanzado',t:'Pregunta 14',f:'(10x² - 3xy + 6y² - z) - (4x² + 5xy - y² + 2z)',ops:['6x² - 8xy + 7y² - 3z','6x² + 2xy + 5y² + z','14x² - 8xy + 7y² - 3z','6x² - 8xy + 5y² + z'],r:0},
+{nivel:'Avanzado',clase:'avanzado',t:'Pregunta 15',f:'(12x³y - 5x²z + 4yz - 8) - (7x³y + 3x²z - 6yz + 2)',ops:['5x³y - 8x²z + 10yz - 10','19x³y - 2x²z - 2yz - 6','5x³y + 8x²z + 10yz - 10','5x³y - 8x²z - 2yz - 6'],r:0}
+];
+let i=0,aciertos=0,bloqueada=false;
+function iniciar(){document.getElementById('inicio').classList.add('oculto');document.getElementById('examen').classList.remove('oculto');cargar();}
+function cargar(){bloqueada=false;const p=preguntas[i];document.getElementById('nivel').textContent=p.nivel;document.getElementById('nivel').className='pill '+p.clase;document.getElementById('contador').textContent=(i+1)+' de '+preguntas.length;document.getElementById('progreso').textContent='Avance: pregunta '+(i+1)+' de '+preguntas.length;document.getElementById('relleno').style.width=((i)/preguntas.length*100)+'%';document.getElementById('titulo').textContent=p.t;document.getElementById('formula').textContent=p.f;document.getElementById('mensaje').className='mensaje';document.getElementById('mensaje').style.display='none';document.getElementById('mensaje').textContent='';document.getElementById('siguiente').disabled=true;const caja=document.getElementById('opciones');caja.innerHTML='';p.ops.forEach((op,idx)=>{const b=document.createElement('button');b.className='opcion';b.textContent=op;b.onclick=()=>responder(idx,b);caja.appendChild(b);});}
+function responder(idx,btn){if(bloqueada)return;bloqueada=true;const p=preguntas[i];const botones=document.querySelectorAll('.opcion');botones.forEach(b=>b.disabled=true);const msg=document.getElementById('mensaje');msg.style.display='block';if(idx===p.r){btn.classList.add('correcta');msg.className='mensaje ok';msg.textContent='Correcto. Puedes avanzar a la siguiente pregunta.';document.getElementById('siguiente').disabled=false;aciertos++;}else{btn.classList.add('incorrecta');msg.className='mensaje bad';msg.textContent='Respuesta incorrecta. La pregunta queda bloqueada y no hay otra oportunidad de selección.';document.getElementById('siguiente').disabled=true;}}
+function siguiente(){if(i<preguntas.length-1){i++;cargar();}else{document.getElementById('relleno').style.width='100%';document.getElementById('examen').classList.add('oculto');document.getElementById('final').classList.remove('oculto');document.getElementById('resultadoFinal').textContent='Resultado final: '+aciertos+' aciertos de '+preguntas.length+'.';}}
+function reiniciar(){i=0;aciertos=0;bloqueada=false;document.getElementById('inicio').classList.remove('oculto');document.getElementById('examen').classList.add('oculto');document.getElementById('final').classList.add('oculto');}
+</script>
+</body>
+</html>
